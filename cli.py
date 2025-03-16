@@ -2,6 +2,13 @@ import openai
 import os
 from rich.console import Console
 from rich.markdown import Markdown
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Set OpenAI API key from environment
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 console = Console()
 

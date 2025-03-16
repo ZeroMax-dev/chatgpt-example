@@ -1,4 +1,12 @@
 import openai
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Set OpenAI API key from environment
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # doc is here https://platform.openai.com/docs/guides/chat/chat-vs-completions?utm_medium=email&_hsmi=248334739&utm_content=248334739&utm_source=hs_email
 chat_completion = openai.ChatCompletion.create(

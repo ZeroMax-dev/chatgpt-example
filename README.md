@@ -22,6 +22,10 @@ After that go to the profile section (top right) and click on `View API keys`.
 Now, install the [`openai` pip package](https://github.com/openai/openai-python) 
 
 ```
+pip install -r requirements.txt
+```
+
+```
 pip install --upgrade openai
 ```
 
