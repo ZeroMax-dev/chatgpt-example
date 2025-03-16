@@ -25,40 +25,30 @@ Now, install the [`openai` pip package](https://github.com/openai/openai-python)
 pip install -r requirements.txt
 ```
 
-```
-pip install --upgrade openai
-```
-
 We're ready to go!
 
 ## Make a simple request
 
-The official doc is [here](https://platform.openai.com/docs/guides/chat?utm_medium=email&_hsmi=248334739&utm_content=248334739&utm_source=hs_email). To make a simple request, you will need to import the `openai` package and call the `openai.ChatCompletion.create` method by passing the model id and a list of messages.
+The official doc is [here](https://platform.openai.com/docs/guides/chat?utm_medium=email&_hsmi=248334739&utm_content=248334739&utm_source=hs_email). 
+
 
 ```python
-# main.py
-import openai
-
-chat_completion = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[
+payload = {
+    "model": "gpt-3.5-turbo",
+    "messages": [
         # system message first, it helps set the behavior of the assistant
         {"role": "system", "content": "You are a helpful assistant."},
         # I am the user, and this is my prompt
         {"role": "user", "content": "What's the best star wars movie?"},
         # we can also add the previous conversation
         # {"role": "assistant", "content": "Episode III."},
-    ],
-)
+    ]
+}
 ```
 
-`messages` is a list of dictionaries with key `role` and `content`. `role can be `system`, use it to set the bot behaviour, `user` is the user interacting with the bot (ourself) and `assistant` is the chatbot. Inside `content` we place our text.
+`messages` is a list of objects with key `role` and `content`. `role can be `system`, use it to set the bot behaviour, `user` is the user interacting with the bot (ourself) and `assistant` is the chatbot. Inside `content` we place our text.
 
 We need to have export `OPENAI_API_KEY` in order to let OpenAI knows who we are. Set the env variable `OPENAI_API_KEY` to the one you have created before
-
-```
-export OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
-```
 
 Then, we can run the python script with the code above:
 
